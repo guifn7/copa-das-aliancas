@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Copa das Alianças 💍</title>
+<style>
+  :root{--accent:#b63b6b;--bg:#faf9fb;--card:#fff;--muted:#666}
+  body{font-family:Inter,system-ui,Arial;margin:0;background:var(--bg);color:#111;transition:background .3s}
+  .wrap{max-width:980px;margin:26px auto;padding:20px;transition:all .3s}
+  h1{margin:0 0 8px;font-size:28px}
+  p.lead{margin:0 0 18px;color:var(--muted)}
+  #setupGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;transition:all .3s}
+  .part{background:var(--card);padding:10px;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,0.06);text-align:center;transition:all .3s}
+  .part img{width:100%;height:110px;object-fit:cover;border-radius:8px;background:#f1f1f1;transition:transform .3s}
+  .part img:hover{transform:scale(1.05)}
+  .pname{margin-top:8px;font-weight:600}
+  .smallbtn{display:inline-block;margin-top:8px;padding:6px 10px;border-radius:8px;border:1px solid #eee;background:#fff;cursor:pointer;font-size:13px}
+  #startBtn{margin-top:18px;padding:12px 18px;border-radius:10px;background:var(--accent);color:#fff;border:0;cursor:pointer;font-weight:700;transition:background .3s}
+  #startBtn:hover{background:#a3365e}
+  #matchArea{display:none;margin-top:18px;transition:all .3s}
+  .roundTitle{font-size:20px;margin-bottom:8px;transition:all .3s}
+  .matchWrap{display:flex;gap:16px;align-items:center;justify-content:center;margin-top:10px;transition:all .3s}
+  .card{width:42%;background:var(--card);padding:12px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.06);cursor:pointer;transition:transform .2s, box-shadow .2s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgba(0,0,0,0.12)}
+  .card img{width:100%;height:230px;object-fit:cover;border-radius:8px;background:#f6f6f6;transition:all .3s}
+  .card .name{margin-top:10px;font-weight:700;text-align:center;transition:all .3s}
+  .vs{font-size:18px;color:var(--muted);font-weight:700;transition:all .3s}
+  .counter{margin-top:8px;color:var(--muted)}
+  .progressBar{width:100%;height:8px;background:#eee;border-radius:4px;margin-top:12px;overflow:hidden}
+  .progress{height:100%;width:0%;background:var(--accent);transition:width .5s}
+  .finalBox{margin-top:18px;text-align:center;transition:all .3s}
+  .champ{display:inline-block;padding:10px;border-radius:12px;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,0.08);width:60%;transition:all .3s}
+  .champ img{width:100%;height:220px;object-fit:cover;border-radius:8px;transition:transform .3s}
+  .champ:hover img{transform:scale(1.05)}
+  .btn{margin-top:12px;padding:10px 14px;border-radius:8px;border:0;cursor:pointer;transition:all .3s}
+  .btn.secondary{background:#fff;border:1px solid #ddd}
+  .btn:hover{opacity:.85}
+  footer{margin-top:26px;color:#777;font-size:13px;text-align:center}
+  @media (max-width:720px){#setupGrid{grid-template-columns:repeat(2,1fr)}.card img{height:160px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Copa das Alianças 💍</h1>
+  <p class="lead">Clique em <strong>Iniciar Torneio</strong> e escolha a cada partida a aliança vencedora. EU TE AMO AMANDA</p>
+  <div id="setup">
+    <div id="setupGrid"></div>
+    <button id="startBtn">Iniciar Torneio</button>
+    <p style="margin-top:10px;color:var(--muted);font-size:13px">Dica: se não colocar imagem, aparecerá um placeholder.</p>
+  </div>
+  <div id="matchArea">
+    <div class="roundTitle" id="roundTitle">Oitavas de Final</div>
+    <div class="counter" id="matchCounter">Partida 1 de 8</div>
+    <div class="progressBar"><div class="progress" id="progress"></div></div>
+    <div class="matchWrap">
+      <div class="card" id="leftCard" data-side="L"><img id="leftImg" src="" alt="esquerda"><div class="name" id="leftName">Aliança A</div></div>
+      <div class="vs">VS</div>
+      <div class="card" id="rightCard" data-side="R"><img id="rightImg" src="" alt="direita"><div class="name" id="rightName">Aliança B</div></div>
+    </div>
+    <div class="finalBox" id="finalBox" style="display:none;">
+      <div class="champ" id="championCard"><img id="champImg" src=""><div class="name" id="champName" style="margin-top:10px;font-size:18px"></div></div>
+      <div>
+        <button class="btn" id="restartBtn" style="background:var(--accent);color:#fff">Reiniciar</button>
+        <button class="btn secondary" id="editAgainBtn">Voltar e editar participantes</button>
+        <button class="btn secondary" id="saveBtn">Exportar Campeã</button>
+      </div>
+    </div>
+  </div>
+  <footer>Feito por você — torneio de 16.</footer>
+</div>
+<script>
+const participants=Array.from({length:16},(_,i)=>({id:i+1,name:`Aliança ${i+1}`,img:null}));
+const setupGrid=document.getElementById('setupGrid');
+const startBtn=document.getElementById('startBtn');
+const setupSection=document.getElementById('setup');
+const matchArea=document.getElementById('matchArea');
+const roundTitle=document.getElementById('roundTitle');
+const matchCounter=document.getElementById('matchCounter');
+const leftCard=document.getElementById('leftCard');
+const rightCard=document.getElementById('rightCard');
+const leftImg=document.getElementById('leftImg');
+const rightImg=document.getElementById('rightImg');
+const leftName=document.getElementById('leftName');
+const rightName=document.getElementById('rightName');
+const finalBox=document.getElementById('finalBox');
+const champImg=document.getElementById('champImg');
+const champName=document.getElementById('champName');
+const restartBtn=document.getElementById('restartBtn');
+const editAgainBtn=document.getElementById('editAgainBtn');
+const progressBar=document.getElementById('progress');
+const saveBtn=document.getElementById('saveBtn');
+let currentRoundParticipants=[],roundIndex=0,matchIndex=0,winners=[];
+const roundLabels=['Oitavas de Final','Quartas de Final','Semifinal','Final'];
+function dataURLPlaceholder(text){const svg=`<svg xmlns='http://www.w3.org/2000/svg' width='600' height='420'><rect width='100%' height='100%' fill='#f6f6f8'/><text x='50%' y='50%' font-size='28' fill='#999' dominant-baseline='middle' text-anchor='middle' font-family='Arial'>${text}</text></svg>`;return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);}
+function renderSetup(){setupGrid.innerHTML='';participants.forEach((p,idx)=>{const div=document.createElement('div');div.class
