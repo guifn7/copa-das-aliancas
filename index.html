@@ -5,106 +5,87 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Copa das Alianças 💍</title>
 <style>
-  :root{--accent:#b63b6b;--bg:#faf9fb;--card:#fff;--muted:#666}
-  body{font-family:Inter,system-ui,Arial;margin:0;background:var(--bg);color:#111}
-  .wrap{max-width:980px;margin:26px auto;padding:20px}
-  h1{margin:0 0 8px;font-size:28px}
-  p.lead{margin:0 0 18px;color:var(--muted)}
-  #setupGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .part{background:var(--card);padding:10px;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,0.06);text-align:center}
-  .part img{width:100%;height:110px;object-fit:cover;border-radius:8px;background:#f1f1f1}
-  .pname{margin-top:8px;font-weight:600}
-  .smallbtn{display:inline-block;margin-top:8px;padding:6px 10px;border-radius:8px;border:1px solid #eee;background:#fff;cursor:pointer;font-size:13px}
-  #startBtn{margin-top:18px;padding:12px 18px;border-radius:10px;background:var(--accent);color:#fff;border:0;cursor:pointer;font-weight:700}
-  #matchArea{display:none;margin-top:18px}
-  .roundTitle{font-size:20px;margin-bottom:8px}
-  .matchWrap{display:flex;gap:16px;align-items:center;justify-content:center;margin-top:10px}
-  .card{width:42%;background:var(--card);padding:12px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.06);cursor:pointer;transition:transform .12s}
-  .card:hover{transform:translateY(-6px)}
-  .card img{width:100%;height:230px;object-fit:cover;border-radius:8px;background:#f6f6f6}
-  .card .name{margin-top:10px;font-weight:700;text-align:center}
-  .vs{font-size:18px;color:var(--muted);font-weight:700}
-  .counter{margin-top:8px;color:var(--muted)}
-  .finalBox{margin-top:18px;text-align:center}
-  .champ{display:inline-block;padding:10px;border-radius:12px;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,0.08);width:60%}
-  .champ img{width:100%;height:220px;object-fit:cover;border-radius:8px}
-  .btn{margin-top:12px;padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
-  .btn.secondary{background:#fff;border:1px solid #ddd}
-  footer{margin-top:26px;color:#777;font-size:13px;text-align:center}
-  @media (max-width:720px){
-    #setupGrid{grid-template-columns:repeat(2,1fr)}
-    .card img{height:160px}
-  }
+  :root{--accent:#b63b6b;--bg:#faf9fb;--card:#fff;--muted:#666}
+  body{font-family:Inter,system-ui,Arial;margin:0;background:var(--bg);color:#111}
+  .wrap{max-width:980px;margin:26px auto;padding:20px}
+  h1{margin:0 0 8px;font-size:28px}
+  p.lead{margin:0 0 18px;color:var(--muted)}
+  #setupGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .part{background:var(--card);padding:10px;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,0.06);text-align:center}
+  .part img{width:100%;height:110px;object-fit:cover;border-radius:8px;background:#f1f1f1}
+  .pname{margin-top:8px;font-weight:600}
+  .smallbtn{display:inline-block;margin-top:8px;padding:6px 10px;border-radius:8px;border:1px solid #eee;background:#fff;cursor:pointer;font-size:13px}
+  #startBtn{margin-top:18px;padding:12px 18px;border-radius:10px;background:var(--accent);color:#fff;border:0;cursor:pointer;font-weight:700}
+  #matchArea{display:none;margin-top:18px}
+  .roundTitle{font-size:20px;margin-bottom:8px}
+  .matchWrap{display:flex;gap:16px;align-items:center;justify-content:center;margin-top:10px}
+  .card{width:42%;background:var(--card);padding:12px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.06);cursor:pointer;transition:transform .12s}
+  .card:hover{transform:translateY(-6px)}
+  .card img{width:100%;height:230px;object-fit:cover;border-radius:8px;background:#f6f6f6}
+  .card .name{margin-top:10px;font-weight:700;text-align:center}
+  .vs{font-size:18px;color:var(--muted);font-weight:700}
+  .counter{margin-top:8px;color:var(--muted)}
+  .finalBox{margin-top:18px;text-align:center}
+  .champ{display:inline-block;padding:10px;border-radius:12px;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,0.08);width:60%}
+  .champ img{width:100%;height:220px;object-fit:cover;border-radius:8px}
+  .btn{margin-top:12px;padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
+  .btn.secondary{background:#fff;border:1px solid #ddd}
+  footer{margin-top:26px;color:#777;font-size:13px;text-align:center}
+  @media (max-width:720px){
+    #setupGrid{grid-template-columns:repeat(2,1fr)}
+    .card img{height:160px}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Copa das Alianças 💍</h1>
-  <p class="lead"> Clique em <strong>Iniciar Torneio</strong> e escolha a cada partida a aliança vencedora. EU TE AMO AMANDA</p>
+  <h1>Copa das Alianças 💍</h1>
+  <p class="lead">Clique em <strong>Iniciar Torneio</strong> e escolha a cada partida a aliança vencedora. Eu te amo minha Pequena <3</p>
 
-  <div id="setup">
-    <div id="setupGrid"></div>
-    <button id="startBtn">Iniciar Torneio</button>
-    <p style="margin-top:10px;color:var(--muted);font-size:13px">Dica: se não colocar imagem, aparecerá um placeholder.</p>
-  </div>
+  <div id="setup">
+    <div id="setupGrid"></div>
+    <button id="startBtn">Iniciar Torneio</button>
+    <p style="margin-top:10px;color:var(--muted);font-size:13px"Você ainda vai casar comigo.</p>
+  </div>
 
-  <div id="matchArea">
-    <div class="roundTitle" id="roundTitle">Oitavas de Final</div>
-    <div class="counter" id="matchCounter">Partida 1 de 8</div>
-    <div class="matchWrap">
-      <div class="card" id="leftCard" data-side="L">
-        <img id="leftImg" src="" alt="esquerda">
-        <div class="name" id="leftName">Aliança A</div>
-      </div>
+  <div id="matchArea">
+    <div class="roundTitle" id="roundTitle">Oitavas de Final</div>
+    <div class="counter" id="matchCounter">Partida 1 de 8</div>
+    <div class="matchWrap">
+      <div class="card" id="leftCard" data-side="L">
+        <img id="leftImg" src="" alt="esquerda">
+        <div class="name" id="leftName">Aliança A</div>
+      </div>
 
-      <div class="vs">VS</div>
+      <div class="vs">VS</div>
 
-      <div class="card" id="rightCard" data-side="R">
-        <img id="rightImg" src="" alt="direita">
-        <div class="name" id="rightName">Aliança B</div>
-      </div>
-    </div>
+      <div class="card" id="rightCard" data-side="R">
+        <img id="rightImg" src="" alt="direita">
+        <div class="name" id="rightName">Aliança B</div>
+      </div>
+    </div>
 
-    <div class="finalBox" id="finalBox" style="display:none;">
-      <div class="champ" id="championCard">
-        <img id="champImg" src="">
-        <div class="name" id="champName" style="margin-top:10px;font-size:18px"></div>
-      </div>
-      <div>
-        <button class="btn" id="restartBtn" style="background:var(--accent);color:#fff">Reiniciar</button>
-        <button class="btn secondary" id="editAgainBtn">Voltar e editar participantes</button>
-      </div>
-    </div>
-  </div>
+    <div class="finalBox" id="finalBox" style="display:none;">
+      <div class="champ" id="championCard">
+        <img id="champImg" src="">
+        <div class="name" id="champName" style="margin-top:10px;font-size:18px"></div>
+      </div>
+      <div>
+        <button class="btn" id="restartBtn" style="background:var(--accent);color:#fff">Reiniciar</button>
+        <button class="btn secondary" id="editAgainBtn">Voltar e editar participantes</button>
+      </div>
+    </div>
+  </div>
 
-  <footer>Feito por você — torneio de 16.</footer>
+  <footer>Você é o amor da minha vida</footer>
 </div>
 
 <script>
 /* Dados iniciais */
-const participants = [
-  {
-    id: 1,
-    name: "Aliança 1",
-    img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBhMJCggKCAoICAgKCAgICAgICAgKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/2wCEAQoICggICggICwgICggKCAoICggKCAoICgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAEAAQADASEAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECA//EABwQAQEAAgIDAQAAAAAAAAAAAAABEQISITEyQf/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EABcRAQEBAQAAAAAAAAAAAAAAAAABETES/9oADAMBAAIRAxEAPwD2uJ5+9d3Pnx58+3t7fOq7nzu913Ovn09fTq3/ADy7/O73O7/PDXmY9/Rj1vD1e3v6Muv6MuzLrq9H38M/1/B/X+H39H3P7/AA6/jH7f4d/x/D/W7fD0/t+H/AMfw6/tL/j/Dv+H2f2/D/6/D/0u9+H/w+39P5fX9N2y3/p9Dbf3L0f6L3bf6v9/wA8+7+F/h/j/D/H/DP+/8P/L/AB/T5fT5v9/n/F/X+H39Pj+H2e3x+Xl9f9/5f1/L/8AGrP717c37Vb+v/d/8A7u3+9f7u3/97O/r/ALs2f6+57v62bP6+f/wBt2/8A6u/P5/y6f7v8f/2f3Lq7+7Lq6f8A3Lp/y6X3f8373d3+z39X+f7s3f9W3/9/m5s2fm9f7f45+5d/v+f329P/ANf8O/63b/38d38+2b/H/y6n2/H2t3t+3v+z+fn/j7+nv/AG7c2bO3r/d3/wDH2/8Az/h+t2/3t35s/wCHb/0+/wDvj/F/y6f/AN8y6/8Anl1/7f48+3t/D1/b1/l9f+X2/d9v+b/H39P/AOX6+f8Ab9/L1/l9f+X1/d2/wDH1/l9f/fT/j9f/AHb/AH/n9dvT7v1+b/H1/d2/l9d2f2/v/AO/p9f8A3d+f2+/+2f5s2f6+H7f/X2b/7Yf9v/AO+G33f/AN8d3/8Afj/r/n/j/wD/AP/Z" },
-  {
-    id: 2,
-    name: "Aliança 2",
-    img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBhMJCggKCAoICAgKCAgICAgICAgKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/2wCEAQoICggICggICwgICggKCAoICggKCAoICgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCjARCAEAAQADASEAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECA//EABwQAQEAAgIDAQAAAAAAAAAAAAABEQISITEyQf/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EABcRAQEBAQAAAAAAAAAAAAAAAAABETES/9oADAMBAAIRAxEAPwD2uJ5+9d3Pnx58+3t7fOq7nzu913Ovn09fTq3/ADy7/O73O7/PDXmY9/Rj1vD1e3v6Muv6MuzLrq9H38M/1/B/X+H39H3P7/AA6/jH7f4d/x/D/W7fD0/t+H/AMfw6/tL/j/Dv+H2f2/D/6/D/0u9+H/w+39P5fX9N2y3/p9Dbf3L0f6L3bf6v9/wA8+7+F/h/j/D/H/DP+/8P/L/AB/T5fT5v9/n/F/X+H39Pj+H2e3x+Xl9f9/5f1/L/8AGrP717c37Vb+v/d/8A7u3+9f7u3/97O/r/ALs2f6+57v62bP6+f/wBt2/8A6u/P5/y6f7v8f/2f3Lq7+7Lq6f8A3Lp/y6X3f8373d3+z39X+f7s3f9W3/9/m5s2fm9f7f45+5d/v+f329P/ANf8O/63b/38d38+2b/H/y6n2/H2t3t+3v+z+fn/j7+nv/AG7c2bO3r/d3/wDH2/8Az/h+t2/3t35s/wCHb/0+/wDvj/F/y6f/AN8y6/8Anl1/7f48+3t/D1/b1/l9f+X2/d9v+b/H39P/AOX6+f8Ab9/L1/l9f+X1/d2/wDH1/l9f/fT/j9f/AHb/AH/n9dvT7v1+b/H1/d2/l9d2f2/v/AO/p9f8A3d+f2+/+2f5s2f6+H7f/X2b/7Yf9v/AO+G33f/AN8d3/8Afj/r/n/j/wD/AP/Z" },
-  { id: 3, name: "Aliança 3", img: null },
-  { id: 4, name: "Aliança 4", img: null },
-  { id: 5, name: "Aliança 5", img: null },
-  { id: 6, name: "Aliança 6", img: null },
-  { id: 7, name: "Aliança 7", img: null },
-  { id: 8, name: "Aliança 8", img: null },
-  { id: 9, name: "Aliança 9", img: null },
-  { id: 10, name: "Aliança 10", img: null },
-  { id: 11, name: "Aliança 11", img: null },
-  { id: 12, name: "Aliança 12", img: null },
-  { id: 13, name: "Aliança 13", img: null },
-  { id: 14, name: "Aliança 14", img: null },
-  { id: 15, name: "Aliança 15", img: null },
-  { id: 16, name: "Aliança 16", img: null },
+const participants = Array.from({length:16}, (_,i)=>({
+  id:i+1,
+  name: `Aliança ${i+1}`,
+  img: null // data URL
 }));
 
 /* Helpers DOM */
